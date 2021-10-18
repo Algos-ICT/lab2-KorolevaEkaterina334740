@@ -1,22 +1,19 @@
 import time
 t_start = time.perf_counter()
 def linear_search(li, v):
-    i = 0
-    l = len(li)
-    while i < l and v != li[i]:
-        i += 1
-
-    if i < l:
-        b.append(-1)
-    else: b.append(i)
-    return i if i < l else None
-b = []
-
+    index = []
+    for i in range(len(li)):
+        if li[i] == v:
+            index.append(i)
+    if not index:
+        index.append(-1)
+    return index
 with open('input.txt') as f:
    a = f.readline()
    v = f.readline()
 a = a.split()
-linear_search(a, v)
+b = linear_search(a, v)
+b = ' '.join(map(str, b))
 with open('output.txt', 'w') as f:
     if linear_search(a, v) == None:
         f.write('-1')
